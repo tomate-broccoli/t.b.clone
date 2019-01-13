@@ -1,5 +1,5 @@
 // index.js
-const clone = m=>o=>JSON.parse(
+const clone = (m={})=>o=>JSON.parse(
     JSON.stringify(o)
    ,(k, v)=>m[k] ? m[k](v) : v
 )
