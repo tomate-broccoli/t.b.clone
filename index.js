@@ -52,6 +52,7 @@ const _conv = conv({
         const d = ("00"+(dt.getDate())).slice(-2)
         return `${y}/${m}/${d}`
     }
+   ,sex: v=>v ? 'M' : 'F'
    ,comment: v=>v ? v : ''
 })
 console.log('** conv:', _conv(dto))
