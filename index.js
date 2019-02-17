@@ -23,6 +23,7 @@ module.exports = {
 if(module.parent) return
 
 // sample
+const {clone:cln, filter:flt, conv:cnv} = require('./index.js')
 const dto = {
     id: 12345
    ,name: 'foo bar'
@@ -31,12 +32,12 @@ const dto = {
    ,comment: null
 }
 
-const _clone = clone({
+const _clone = cln({
     birthday: v=>new Date(v)
 })
 console.log('** clone:', _clone(dto))
 
-const _filter = filter ({
+const _filter = flt({
     id: v=>v
    ,name: v=>v
    ,birthday: v=>v
@@ -44,7 +45,7 @@ const _filter = filter ({
 })
 console.log('** filter:', _filter(dto))
 
-const _conv = conv({
+const _conv = cnv({
     id: v=>("0000000000"+v).slice(-10)
    ,birthday: dt=>{
         const y = dt.getFullYear()
